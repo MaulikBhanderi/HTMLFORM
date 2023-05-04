@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>html from validation</title>
+        <style type="text/css">
+            .input
+            {
+               width: 600px;
+               height: 35px;
+               border-radius: 5px;
+               border: 2px solid brown;
+               font-size: 20px;
+            }
+            #btn
+            {
+                background-color: green;
+                color: aqua;
+                font-size: 20px;
+                border-radius: 0px 15px;
+            }
+            #btn:hover
+            {
+                background-color: brown;
+            }
+        </style>
+    </head>
+    <body style="background-image: url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=1380&t=st=1683177114~exp=1683177714~hmac=6d289ecde1c672552134d60b2bbb939411c2999772f02d0036797c13e0623cf3);">
+        <form action="a.html" autocomplete="off" onsubmit="return validation()">    
+            <table cellspacing="20" align="center">
+                <tr><td><input type="text" id="user" placeholder="User" class="input">
+                    <br><span id="userr"></span>
+                </td></tr>
+                <tr><td><input type="password" id="pass" placeholder="Password" class="input">
+                    <br><span id="passs"></span>
+                </td></tr>
+                <tr><td><input type="text" id="conpass" placeholder=" Confim Password" class="input">
+                    <br><span id="conpasss"></span>
+                </td></tr>
+                <tr><td><input type="text" id="email" placeholder="Email" class="input">
+                    <br><span id="emaill"></span>
+                </td></tr>
+                <tr><td><input type="text" id="address" placeholder="address" class="input">
+                    <br><span id="address"></span>
+                </td></tr>
+                <tr><td><input type="text" id="mobile" placeholder="Mobile" class="input">
+                    <br><span id="mobilee"></span>
+                </td></tr>
+                <tr><td>
+                        Gender :
+                        male<input type="radio" name="Gender"> female<input type="radio" name="Gender">
+                    </td></tr>
+                <tr><td><input type="submit" id="btn" placeholder=""></td></tr>
+                
+            </table>
+            </form>
+            <script type="text/javascript">
+                function validation()
+                {
+                    var user = document.getElementById('user').value;
+                    var pass = document.getElementById('pass').value;
+                    var conpass = document.getElementById('conpass').value;
+                    var email = document.getElementById('email').value;
+                    var mobile = document.getElementById('mobile').value;
+
+                 if(user == "")
+                    {
+                        document.getElementById('userr').innerHTML="**Please write username in the box**";
+                        return false;
+                    }
+                  if(user.length<2)
+                        {
+                            document.getElementById('userr').innerHTML="**Please write more than one character in the box**";
+                        return false;
+                        }
+                  if(!isNaN(user))
+                        {
+                            document.getElementById('userr').innerHTML="**Please write Alphabets only in the box**";
+                        return false;
+                        }
+                  else
+                        {
+                            document.getElementById('userr').innerHTML="";
+                        }
+                if(pass == "")
+                    {
+                        document.getElementById('passs').innerHTML="**Please write password in the box**";
+                    }
+                 if(pass.length<8)
+                    {
+                        document.getElementById('passs').innerHTML="**Please write password of 8 chracters in the box**";
+                    }
+                    else
+                        {
+                            document.getElementById('passs').innerHTML="";
+                        }
+                if(conpass == "")
+                    {
+                        document.getElementById('conpasss').innerHTML="**Please write confom password in the box**";
+                    }
+                 if(conpass != pass)
+                    {
+                        document.getElementById('conpasss').innerHTML="**password not matches**";
+                    }
+                  else
+                        {
+                            document.getElementById('conpasss').innerHTML="";
+                        }
+                if(email == "")
+                    {
+                        document.getElementById('emaill').innerHTML="**Please write email  in the box**";
+                    }
+                 if(email.indexOf('@')<=0)
+                    {
+                        document.getElementById('emaill').innerHTML="**Invalid Position of @**";
+                    }
+                    else
+                        {
+                            document.getElementById('emaill').innerHTML="";
+                        }
+                 if(address == "")
+                    {
+                        document.getElementById('addresss').innerHTML="**Please write address in the box**";
+                        return false;
+                    } 
+                    if(address.length<5)
+                        {
+                            document.getElementById('addresss').innerHTML="**Please write more than five character in the box**";
+                        return false;
+                        }
+                     else
+                        {
+                            document.getElementById('addresss').innerHTML="";
+                        }
+                        
+                if(mobile == "")
+                    {
+                        document.getElementById('mobilee').innerHTML="**Please write mobile in the box**";
+                    }
+                 if(isNaN(mobile))
+                    {
+                        document.getElementById('mobilee').innerHTML="**Please write number in the box**";
+                    }
+                    else
+                        {
+                            document.getElementById('mobilee').innerHTML="";
+                        }
+                }
+
+            </script>
+
+    </body>
+</html>
