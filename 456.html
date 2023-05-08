@@ -24,34 +24,34 @@
         </style>
     </head>
     <body style="background-image: url(https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=1380&t=st=1683177114~exp=1683177714~hmac=6d289ecde1c672552134d60b2bbb939411c2999772f02d0036797c13e0623cf3);">
-        <form action="a.html" autocomplete="off" onsubmit="return validation()">    
+        <form action="a.html" autocomplete="off" id="myform" >    
             <table cellspacing="20" align="center">
-                <tr><td><input type="text" id="user" placeholder="User" class="input">
+                <tr><td><input type="text" id="user" placeholder="User" name="name" class="input">
                     <br><span id="userr"></span>
                 </td></tr>
-                <tr><td><input type="password" id="pass" placeholder="Password" class="input">
+                <tr><td><input type="password" id="pass" placeholder="Password" name="password" class="input">
                     <br><span id="passs"></span>
                 </td></tr>
-                <tr><td><input type="text" id="conpass" placeholder=" Confim Password" class="input">
+                <tr><td><input type="text" id="conpass" placeholder=" Confim Password" name="conpasss" class="input">
                     <br><span id="conpasss"></span>
                 </td></tr>
-                <tr><td><input type="text" id="email" placeholder="Email" class="input">
+                <tr><td><input type="text" id="email" placeholder="Email" name="email" class="input">
                     <br><span id="emaill"></span>
                 </td></tr>
-                <tr><td><input type="text" id="address" placeholder="address" class="input">
-                    <br><span id="address"></span>
+                <tr><td><input type="text" id="address" placeholder="address" name="address" class="input">
+                    <br><span id="addresss"></span>
                 </td></tr>
-                <tr><td><input type="text" id="mobile" placeholder="Mobile" class="input">
+                <tr><td><input type="text" id="mobile" placeholder="Mobile" name="mobile" class="input">
                     <br><span id="mobilee"></span>
                 </td></tr>
                 <tr><td>
                         Gender :
                         male<input type="radio" name="Gender"> female<input type="radio" name="Gender">
                     </td></tr>
-                <tr><td><input type="submit" id="btn" placeholder=""></td></tr>
-                
-            </table>
+                    
+                </table>
             </form>
+            <tr><td><input type="submit" id="btn" placeholder="" onclick="return validation()"></td></tr>
             <script type="text/javascript">
                 function validation()
                 {
@@ -60,7 +60,9 @@
                     var conpass = document.getElementById('conpass').value;
                     var email = document.getElementById('email').value;
                     var mobile = document.getElementById('mobile').value;
-
+                    var address = document.getElementById('address').value;
+if(user.length<2 || pass.length<8 || conpass != pass || email.indexOf('@')<=0 || address.length<5 || isNaN(mobile))
+{
                  if(user == "")
                     {
                         document.getElementById('userr').innerHTML="**Please write username in the box**";
@@ -134,16 +136,23 @@
                 if(mobile == "")
                     {
                         document.getElementById('mobilee').innerHTML="**Please write mobile in the box**";
+                        
                     }
                  if(isNaN(mobile))
                     {
                         document.getElementById('mobilee').innerHTML="**Please write number in the box**";
+                        
                     }
                     else
                         {
                             document.getElementById('mobilee').innerHTML="";
                         }
+}
+else{
+    document.getElementById("myform").submit();
+}
                 }
+
 
             </script>
 
